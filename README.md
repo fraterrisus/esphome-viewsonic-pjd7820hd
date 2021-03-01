@@ -12,7 +12,7 @@ An ESPHome configuration for power on/off control of a ViewSonic PJD7820HD proje
 8. Enjoy integrated control of your projector's on/off switch!
 
 ## Parts
-* A [ViewSonic PJD7820HD](https://www.viewsonic.com/uk/products/projectors/pjd7820hd) projector, obviously. These things have 
+* A [ViewSonic PJD7820HD](https://www.viewsonic.com/uk/products/projectors/pjd7820hd) projector, obviously.
 * A [Wemos D1 Mini](https://www.wemos.cc/en/latest/d1/d1_mini.html) board with an ESP8266. Cheap (around $5) and readily available.
 * A [SparkFun RS232 Shifter](https://www.sparkfun.com/products/449) board. A bit more expensive but worth it.
 * [HomeAssistant](https://www.home-assistant.io/) with the [ESPhome](https://esphome.io/) integration. (I ran esphome from the command line of my desktop instead of using the HASS add-on.)

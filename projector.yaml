@@ -1,0 +1,47 @@
+esphome:
+  name: projector
+  platform: ESP8266
+  board: d1_mini
+  includes:
+    - uart_projector_switch.h
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Projector Fallback Hotspot"
+    password: !secret fallback_pass
+
+captive_portal:
+
+# Enable logging
+logger:
+  # but disable UART logging
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+uart:
+  id: uart_bus
+  tx_pin: RX
+  rx_pin: TX
+  baud_rate: 115200
+
+switch:
+  - platform: gpio
+    name: "Board LED"
+    pin:
+      number: D4
+      inverted: yes
+  - platform: custom
+    switches:
+      name: "Projector Power"
+    lambda: |-
+      auto power_switch = new UartProjectorSwitch(id(uart_bus));
+      App.register_component(power_switch);
+      return { power_switch };
